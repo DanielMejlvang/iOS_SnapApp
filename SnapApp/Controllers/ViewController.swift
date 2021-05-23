@@ -42,7 +42,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
             dest.snap = fbs.snaps[snapIndex]
             dest.parent_view_controller = self
         }
-        
     }
     
     func update(obj: NSObject?) {
