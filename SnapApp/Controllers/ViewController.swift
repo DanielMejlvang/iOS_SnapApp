@@ -58,6 +58,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         present(myImagePicker, animated: true)
     }
     
+    //alert message to get user input for snap message
     func attachMessageToPicture(img: UIImage) {
         let annotationAlert = UIAlertController(title: "New snap", message: "Write a message with your snap", preferredStyle: .alert)
         annotationAlert.addTextField { (textField) in
@@ -77,6 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         present(annotationAlert, animated: true, completion: nil)
     }
     
+    //grab username from bottom label, return "Unknown" if blank
     func getUsername() -> String {
         var username = "Unknown"
         if var checkUsername = userTextField.text {
@@ -87,19 +89,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         }
         return username
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let dest = segue.destination as? SnapDetail {
-//            snapTableView.delegate = self
-//            let snapIndex = snapTableView.indexPathForSelectedRow?.row ?? 0
-//            print(snapIndex)
-//            print(fbs.snaps[snapIndex].message ?? "No message")
-////            dest.snap = fbs.snaps[snapIndex]
-////            print(dest.snap.message!)
-//            dest.snap = "hello there"
-//            dest.parent_view_controller = self
-//        }
-//
-//        print("prepare is called \(segue.destination.description)")
-//    }
 }

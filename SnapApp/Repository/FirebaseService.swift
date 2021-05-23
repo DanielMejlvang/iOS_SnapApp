@@ -33,8 +33,6 @@ class FirebaseService {
                         let from = doc.data()["from"] as? String ?? "Unknown"
                         
                         let location = doc.data()["location"] as! GeoPoint
-//                        let coordinates = CLLocationCoordinate2DMake(point.latitude, point.longitude)
-//                        marker.coordinate = coordinates
                         
                         let message = doc.data()["message"] as? String ?? ""
                         
