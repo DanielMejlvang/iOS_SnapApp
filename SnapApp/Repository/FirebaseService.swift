@@ -72,4 +72,25 @@ class FirebaseService {
             }
         }
     }
+    
+    func deleteSnap(id: String) {
+        //delete document in Firestore
+        db.collection(COLLECTION_PATH).document(id).delete(){ error in
+            if let error = error {
+                print("Delete document: Failure = \(error.localizedDescription)")
+            } else {
+                print("Delete document: Success")
+            }
+        }
+        
+        //delete image in Storage
+        let imageRef = storageRef?.child(COLLECTION_PATH + "/" + id + ".jpg")
+        imageRef?.delete { error in
+          if let error = error {
+            print("Delete image: Failure = \(error.localizedDescription)")
+          } else {
+            print("Delete image: Success")
+          }
+        }
+    }
 }

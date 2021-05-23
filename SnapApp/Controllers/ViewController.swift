@@ -54,7 +54,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
     var myImagePicker = MyImagePicker()
     @IBAction func snapPicture(_ sender: UIButton) {
         myImagePicker.sourceType = .photoLibrary
-        myImagePicker.allowsEditing = true
         present(myImagePicker, animated: true)
     }
     
@@ -66,6 +65,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             let message = annotationAlert.textFields![0].text ?? ""
             let username = self.getUsername()

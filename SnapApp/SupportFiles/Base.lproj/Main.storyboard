@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-9K-FGA">
-                                <rect key="frame" x="158.5" y="75.5" width="97" height="62"/>
+                                <rect key="frame" x="158.5" y="78.5" width="97" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="mqE-2Y-hpf"/>
                                     <constraint firstAttribute="height" constant="59.5" id="sPc-Hn-npb"/>
@@ -33,12 +33,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your username here!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPO-Pc-KTA">
-                                <rect key="frame" x="107.5" y="777" width="199" height="34"/>
+                                <rect key="frame" x="107.5" y="780" width="199" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-GX-heo">
-                                <rect key="frame" x="20" y="144" width="374" height="613"/>
+                                <rect key="frame" x="20" y="147" width="374" height="613"/>
                                 <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="613" id="Unl-pY-atZ"/>
@@ -79,7 +79,6 @@
                             <constraint firstItem="VPO-Pc-KTA" firstAttribute="top" secondItem="H6X-GX-heo" secondAttribute="bottom" constant="20" id="Pv7-Yk-lg3"/>
                             <constraint firstItem="VPO-Pc-KTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VQv-xs-mLY"/>
                             <constraint firstItem="H6X-GX-heo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VoW-5k-EkC"/>
-                            <constraint firstItem="rE7-9K-FGA" firstAttribute="top" secondItem="zYa-0Y-ine" secondAttribute="bottom" constant="5" id="g0n-Rw-Xt4"/>
                             <constraint firstItem="rE7-9K-FGA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kas-rc-eXD"/>
                             <constraint firstItem="rE7-9K-FGA" firstAttribute="top" secondItem="zYa-0Y-ine" secondAttribute="bottom" constant="8" symbolic="YES" id="nLJ-f5-EUW"/>
                             <constraint firstItem="H6X-GX-heo" firstAttribute="top" secondItem="rE7-9K-FGA" secondAttribute="bottom" constant="7.5" id="sfF-NS-jLb"/>

@@ -69,6 +69,6 @@ class SnapDetail: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        print("you gettin deleted")
+        fbs.deleteSnap(id: snap.id)
     }
 }
