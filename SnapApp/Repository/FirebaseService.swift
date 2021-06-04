@@ -53,18 +53,20 @@ class FirebaseService {
         data["message"] = message
         doc.setData(data)
         
+        //upload image in Storage with name = documentID
         uploadImage(image: image, name: doc.documentID)
     }
     
     func uploadImage(image:UIImage, name:String) {
         print("Uploading picture... This could take a while: \(image.size)")
+        //TODO: increase compression quality when internet is better
         if let data = image.jpegData(compressionQuality: 0.5) {
             if let imageRef = storageRef?.child(COLLECTION_PATH + "/" + name + ".jpg") {
                 imageRef.putData(data, metadata: nil, completion: { (metadata, error) in
                     if let e = error {
                         print("Error upload image \(e)")
                     } else {
-                        print("Uploaded image")
+                        print("Uploaded image: " + name)
                     }
                 })
             } else {

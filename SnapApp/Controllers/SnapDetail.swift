@@ -30,8 +30,9 @@ class SnapDetail: UIViewController {
     
     func setupMapView() {
         let marker = MKPointAnnotation()
-        marker.title = "Sent from here"
-        let sentLocation = CLLocationCoordinate2D(latitude: snap.latitude ?? 0, longitude: snap.longitude ?? 0)
+        marker.title = "Snapped here"
+        let sentLocation = CLLocationCoordinate2D(latitude: snap.latitude ?? 0,
+                                                  longitude: snap.longitude ?? 0)
         marker.coordinate = sentLocation
         mapView.addAnnotation(marker)
         mapView.centerCoordinate = sentLocation
@@ -52,12 +53,11 @@ class SnapDetail: UIViewController {
     }
     
     func setImage(url: URL) {
-        print(url.absoluteString)
         //just to not cause a deadlock in UI
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url)
             else {
-                print("URL was somehow not an image")
+                print("Could not retrieve data from URL")
                 return
             }
             

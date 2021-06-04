@@ -112,8 +112,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="max-J3-taB">
-                                <rect key="frame" x="135" y="72" width="144" height="40"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <rect key="frame" x="20" y="72" width="374" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="r78-Xm-oee"/>
                                 </constraints>
@@ -141,13 +141,14 @@
                         <constraints>
                             <constraint firstItem="KA2-fZ-6dv" firstAttribute="top" secondItem="cpz-7A-Bb5" secondAttribute="top" constant="34" id="1OK-jf-Bgz"/>
                             <constraint firstItem="bz2-Ql-9FQ" firstAttribute="centerX" secondItem="CTZ-Nl-P4b" secondAttribute="centerX" id="4yA-yc-pCu"/>
+                            <constraint firstItem="cpz-7A-Bb5" firstAttribute="trailing" secondItem="max-J3-taB" secondAttribute="trailing" constant="20" id="5bG-eR-aSc"/>
                             <constraint firstItem="bz2-Ql-9FQ" firstAttribute="top" secondItem="max-J3-taB" secondAttribute="bottom" constant="8" symbolic="YES" id="6xf-yQ-mNi"/>
                             <constraint firstItem="Nas-Ck-Pue" firstAttribute="centerX" secondItem="CTZ-Nl-P4b" secondAttribute="centerX" id="BzK-i6-jdL"/>
                             <constraint firstItem="KA2-fZ-6dv" firstAttribute="centerX" secondItem="CTZ-Nl-P4b" secondAttribute="centerX" id="Dni-YG-6kE"/>
+                            <constraint firstItem="max-J3-taB" firstAttribute="leading" secondItem="cpz-7A-Bb5" secondAttribute="leading" constant="20" id="ML8-MY-APi"/>
                             <constraint firstItem="Nas-Ck-Pue" firstAttribute="top" secondItem="bz2-Ql-9FQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Rmf-8n-CgZ"/>
                             <constraint firstItem="max-J3-taB" firstAttribute="top" secondItem="KA2-fZ-6dv" secondAttribute="bottom" constant="8" symbolic="YES" id="ZvI-33-qjB"/>
                             <constraint firstItem="bz2-Ql-9FQ" firstAttribute="top" secondItem="max-J3-taB" secondAttribute="bottom" constant="8" symbolic="YES" id="eCS-yT-GRK"/>
-                            <constraint firstItem="max-J3-taB" firstAttribute="centerX" secondItem="CTZ-Nl-P4b" secondAttribute="centerX" id="h47-Y3-8mg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -164,9 +165,6 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

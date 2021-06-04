@@ -81,7 +81,6 @@
 				4263888726592D1800884AE7 /* Repository */,
 				42638880265653D200884AE7 /* SupportFiles */,
 				4263887F265653CA00884AE7 /* Models */,
-				4263887E265653B000884AE7 /* Views */,
 			);
 			path = SnapApp;
 			sourceTree = "<group>";
@@ -90,17 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				426388642656454F00884AE7 /* ViewController.swift */,
-				426388832657985900884AE7 /* MyImagePicker.swift */,
 				426388852657E59100884AE7 /* SnapDetail.swift */,
+				426388832657985900884AE7 /* MyImagePicker.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		4263887E265653B000884AE7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		4263887F265653CA00884AE7 /* Models */ = {
@@ -114,13 +106,13 @@
 		42638880265653D200884AE7 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				426388662656454F00884AE7 /* Main.storyboard */,
+				4263887626564D9700884AE7 /* SnapTableView.swift */,
+				4263887A265651CB00884AE7 /* Updatable.swift */,
 				426388602656454F00884AE7 /* AppDelegate.swift */,
 				426388622656454F00884AE7 /* SceneDelegate.swift */,
-				426388662656454F00884AE7 /* Main.storyboard */,
-				4263887A265651CB00884AE7 /* Updatable.swift */,
-				426388692656455100884AE7 /* Assets.xcassets */,
 				4263886B2656455100884AE7 /* LaunchScreen.storyboard */,
-				4263887626564D9700884AE7 /* SnapTableView.swift */,
+				426388692656455100884AE7 /* Assets.xcassets */,
 				4263886E2656455100884AE7 /* Info.plist */,
 				42638874265645A700884AE7 /* GoogleService-Info.plist */,
 			);

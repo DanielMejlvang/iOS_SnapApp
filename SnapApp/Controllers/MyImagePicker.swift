@@ -16,6 +16,8 @@ class MyImagePicker: UIImagePickerController, UIImagePickerControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //need to dismiss view before sending picture
+        //as subsequent alert can't open on top of image picker
         picker.dismiss(animated: true, completion: nil)
         if let img = info[.originalImage] as? UIImage {
             parentVC?.update(obj: img) //only if object is value
