@@ -48,6 +48,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         snapTableView.reloadData()
     }
     
+    // MARK: - Snap picture
     var myImagePicker = MyImagePicker()
     @IBAction func snapPicture(_ sender: UIButton) {
         myImagePicker.sourceType = .photoLibrary
@@ -98,6 +99,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         return username
     }
     
+    // MARK: - Setup location manager
     func setupLocationManager() {
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {

@@ -21,6 +21,7 @@ class FirebaseService {
     
     var parent:Updatable?
     
+    // MARK: - StartListener
     func startListener() {
         //listen to changes to collection -> get entire updated collection
         db.collection(COLLECTION_PATH).addSnapshotListener { (snap, error) in
@@ -45,6 +46,7 @@ class FirebaseService {
         }
     }
     
+    // MARK: - Save snap
     func saveSnap(from: String, location: CLLocationCoordinate2D, message: String, image: UIImage) {
         let doc = db.collection(COLLECTION_PATH).document()
         var data = [String:Any]()
@@ -75,6 +77,7 @@ class FirebaseService {
         }
     }
     
+    // MARK: - Delete snap
     func deleteSnap(id: String) {
         //delete document in Firestore
         db.collection(COLLECTION_PATH).document(id).delete(){ error in
