@@ -8,7 +8,7 @@
 import UIKit
 
 class SnapTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
-    // MARK: - Table View
+    //MARK: - Table View
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

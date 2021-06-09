@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
     @IBOutlet weak var snapTableView: UITableView!
     @IBOutlet weak var userTextField: UITextField!
     
+    var myImagePicker = MyImagePicker()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -26,30 +27,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         fbs.storageRef = fbs.storage.reference()
         fbs.startListener()
         
-        myImagePicker.parentVC = self
+        myImagePicker.parent_view_controller = self
         
         setupLocationManager()
     }
     
+    //MARK: Segue
     //segue to specific snap from tableview
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? SnapDetail {
             let snapIndex = snapTableView.indexPathForSelectedRow?.row ?? 0
             dest.snap = fbs.snaps[snapIndex]
-            dest.parent_view_controller = self
         }
     }
     
+    //MARK: Update
     func update(obj: NSObject?) {
         //gets UIImage object when MyImagePicker returns with an image
         if let img = obj as? UIImage {
             attachMessageToPicture(img: img)
+        } else {
+            snapTableView.reloadData()
         }
-        snapTableView.reloadData()
     }
     
-    // MARK: - Snap picture
-    var myImagePicker = MyImagePicker()
+    //MARK: - Snap picture methods
     @IBAction func snapPicture(_ sender: UIButton) {
         myImagePicker.sourceType = .photoLibrary
         present(myImagePicker, animated: true)
@@ -60,9 +62,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         let alert = UIAlertController(title: "New snap\n\n\n\n\n\n\n\n\n\n",
                                       message: "Write a message with your snap",
                                       preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "Message"
-        }
         
         //put image into alert
         let imageView = UIImageView(frame: CGRect(x: 40, y: 60, width: 200, height: 200))
@@ -71,9 +70,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
         imageView.image = img
         alert.view.addSubview(imageView)
         //add constraint so to center image
-        alert.view.addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: alert.view, attribute: .centerX, multiplier: 1, constant: 0))
+        alert.view.addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy:  .equal, toItem: alert.view, attribute: .centerX, multiplier: 1, constant: 0))
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Message"
+        }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
         
         let saveAction = UIAlertAction(title: "Send", style: .default) { _ in
             let message = alert.textFields![0].text ?? ""
@@ -82,24 +86,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, Updatable {
             
             fbs.saveSnap(from: username, location: location, message: message, image: img)
         }
-        alert.addAction(cancelAction)
         alert.addAction(saveAction)
+        
         present(alert, animated: true, completion: nil)
     }
     
     //get username from bottom label, return "Unknown" if blank
     func getUsername() -> String {
-        var username = "Unknown"
+        var username: String
         if var checkUsername = userTextField.text {
             if checkUsername == "" {
                 checkUsername = "Unknown"
             }
             username = checkUsername
+        } else {
+            username = "Unknown"
         }
         return username
     }
     
-    // MARK: - Setup location manager
+    //MARK: - Setup location manager
     func setupLocationManager() {
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {

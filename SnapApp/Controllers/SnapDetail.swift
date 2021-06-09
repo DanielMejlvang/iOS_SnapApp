@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 class SnapDetail: UIViewController {
-    var parent_view_controller:ViewController? = nil
     var snap = Snap(id: "", from: "", latitude: 0, longitude: 0, message: "")
     
     @IBOutlet weak var fromLabel: UILabel!
@@ -38,6 +37,7 @@ class SnapDetail: UIViewController {
         mapView.centerCoordinate = sentLocation
     }
     
+    // MARK: - Get image and insert
     func loadImageFromFirebase(){
         let imageRef = fbs.storageRef?.child("examsnaps" + "/" + snap.id + ".jpg")
         
@@ -68,6 +68,7 @@ class SnapDetail: UIViewController {
         }
     }
     
+    // MARK: - Close view
     override func viewDidDisappear(_ animated: Bool) {
         fbs.deleteSnap(id: snap.id)
     }

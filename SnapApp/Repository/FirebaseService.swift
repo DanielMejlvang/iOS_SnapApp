@@ -19,9 +19,9 @@ class FirebaseService {
     
     var snaps = [Snap]()
     
-    var parent:Updatable?
+    var parent: Updatable?
     
-    // MARK: - StartListener
+    // MARK: - Listener
     func startListener() {
         //listen to changes to collection -> get entire updated collection
         db.collection(COLLECTION_PATH).addSnapshotListener { (snap, error) in
@@ -46,7 +46,7 @@ class FirebaseService {
         }
     }
     
-    // MARK: - Save snap
+    //MARK: - Save snap methods
     func saveSnap(from: String, location: CLLocationCoordinate2D, message: String, image: UIImage) {
         let doc = db.collection(COLLECTION_PATH).document()
         var data = [String:Any]()
@@ -59,16 +59,16 @@ class FirebaseService {
         uploadImage(image: image, name: doc.documentID)
     }
     
-    func uploadImage(image:UIImage, name:String) {
+    func uploadImage(image: UIImage, name: String) {
         print("Uploading picture... This could take a while: \(image.size)")
         //TODO: increase compression quality when internet is better
         if let data = image.jpegData(compressionQuality: 0.5) {
             if let imageRef = storageRef?.child(COLLECTION_PATH + "/" + name + ".jpg") {
                 imageRef.putData(data, metadata: nil, completion: { (metadata, error) in
-                    if let e = error {
-                        print("Error upload image \(e)")
+                    if let error = error {
+                        print("Upload image: FAILURE = \(error.localizedDescription)")
                     } else {
-                        print("Uploaded image: " + name)
+                        print("Upload image: SUCCESS " + name)
                     }
                 })
             } else {
@@ -77,25 +77,25 @@ class FirebaseService {
         }
     }
     
-    // MARK: - Delete snap
+    //MARK: - Delete snap
     func deleteSnap(id: String) {
         //delete document in Firestore
-        db.collection(COLLECTION_PATH).document(id).delete(){ error in
+        db.collection(COLLECTION_PATH).document(id).delete() { error in
             if let error = error {
-                print("Delete document: Failure = \(error.localizedDescription)")
+                print("Delete document: FAILURE = \(error.localizedDescription)")
             } else {
-                print("Delete document: Success")
+                print("Delete document: SUCCESS")
             }
         }
         
         //delete image in Storage
         let imageRef = storageRef?.child(COLLECTION_PATH + "/" + id + ".jpg")
         imageRef?.delete { error in
-          if let error = error {
-            print("Delete image: Failure = \(error.localizedDescription)")
-          } else {
-            print("Delete image: Success")
-          }
+            if let error = error {
+                print("Delete image: FAILURE = \(error.localizedDescription)")
+            } else {
+                print("Delete image: SUCCESS")
+            }
         }
     }
 }
